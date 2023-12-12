@@ -11,7 +11,7 @@ import CommentService from './CommentService';
 function getAll(page = 1): Promise<IArticle[]> {
   connection.connect();
   const sql = 'SELECT * FROM article LIMIT ?, 20';
-  return connection.promise().query({ sql }, Number(page - 1))
+  return connection.promise().query({ sql }, Number((page - 1)*20))
     .then(([rows]: any) => rows)
     .catch((error: any) => { throw new Error(error); });
 
