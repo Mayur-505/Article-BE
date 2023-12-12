@@ -60,7 +60,7 @@ app.use((
   if (err instanceof RouteError) {
     status = err.status;
   }
-  return res.status(status).json({ error: err?.message||err});
+  return res.status(status).json({ error: err});
 });
 
 

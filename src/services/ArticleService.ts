@@ -35,7 +35,7 @@ function addArticle(article: IArticleInput): Promise<void> {
   const sql = 'INSERT INTO article (nickname, title, content) VALUES (?, ?, ?)';
   return connection.promise().query(sql, Object.values(article))?.then(([rows]: any) => rows)
     .catch((error: any) => { throw new Error(error); })
-    .then(() => connection.end());
+    // .then(() => connection.end());
 }
 
 
